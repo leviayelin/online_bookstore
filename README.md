@@ -23,3 +23,18 @@ working team
 
 Levi Wasa 
 Tomer Tasema
+
+----------------------------------------
+
+# Installation
+
+Clone the repository:
+git clone https://github.com/your-username/project-name.git
+
+
+Navigate to the project directory:
+cd project-name
+
+Install dependencies (python):
+pip install -r requirements.txt
+

@@ -1,11 +1,18 @@
 # online_bookstore
 
-finals group project - online bookstore 
-----------------------------------------
+## finals group project - online bookstore 
 an e-commers bookstore-type online store, a website that allows searching, browsing and ordering
 books as well as promotions and discounts and new registrations.
 
-Website features:
+## Technologies Used:
+
+Backend: Python, Django Framework.
+
+Database: SQL.
+
+Frontend: HTML, CSS.
+
+## features:
 
 - Simple and convenient user experience, products defined in display tabs
 - Options save to favorites for later ordering (wishlist)
@@ -18,26 +25,28 @@ Website features:
 - Website marketing area
 
 
-working team
-----------------------------------------
+## Installation
 
-  Levi Wasa, 
-  Tomer Tasema
+Clone repository:
 
-----------------------------------------
+        git clone https://github.com/your-username/project-name.git
 
-# Installation
+Creating python virtual envirment:
 
-Clone the repository:
+        python -m venv .venv
 
-    git clone https://github.com/your-username/project-name.git
+Activate the venv manually in the terminal(cmd):
+
+        path\to\venv\Scripts\activate
 
 
 Navigate to the project directory:
 
-    cd project-name
+        cd project-name
 
 Install dependencies (python):
 
-    pip install -r requirements.txt
+        pip install -r requirements.txt
+
+
 

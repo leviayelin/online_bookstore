@@ -1,0 +1,21 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/users/users.css'%}">
+{% endblock %}
+{% block content %}
+<div class="user-page-flex">
+    <div id="user-manu">
+        <h2>user name</h2>
+        <ul>
+            <li><a href="#">orders</a></li>
+            <li><a href="#">fevorites</a></li>
+            <li><a href="#">order history</a></li>
+            <li><a href="#">messages</a></li>
+            <li><a href="#">account setting</a></li>
+        </ul>
+    </div>
+    <div id="user-manu-showcase">
+    </div>
+</div>
+{% endblock%}

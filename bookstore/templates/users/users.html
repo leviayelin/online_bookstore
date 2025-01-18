@@ -1,3 +1,13 @@
 {% extends 'layout.html'%}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/users/users.css'%}">
+{% endblock %}
 {% block content %}
+<div class="user-page-flex">
+    <div id="user-manu">
+    </div>
+    <div id="user-manu-showcase">
+    </div>
+</div>
 {% endblock%}

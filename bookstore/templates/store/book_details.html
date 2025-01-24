@@ -1,0 +1,33 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/store/book_details.css' %}">
+{% endblock %}
+{% block content %}
+    <div id="details-container" class="container">
+        <div class="details-image">
+            <img src="{{book_details.images}}" alt="book_poster">
+        </div>
+        <div class="details-content">
+            <h2>{{book_details.book_title}}</h2>
+            <p>{{book_details.author}}</p>
+            <div class="content-info">
+                <p class="price">price$</p>
+                <p>{{book_details.published_year}}</p>
+                <p>Written Worlds Books & Co.</p>
+            </div>
+            <div>
+                <button class="add_btn">add to cart</button>
+                <button class="buy_btn">buy now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="details-plot">
+        <div class="container">
+            <h2>plot</h2>
+            <hr/>
+            <p>{{book_details.book_description}}</p>
+        </div>
+    </div>
+{% endblock %}

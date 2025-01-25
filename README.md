@@ -10,7 +10,7 @@ Backend: Python, Django Framework.
 
 Database: SQL.
 
-Frontend: HTML, CSS.
+Frontend: HTML, CSS, JAVASCRIPT.
 
 ## features:
 

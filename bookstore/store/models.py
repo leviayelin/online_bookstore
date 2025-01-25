@@ -12,6 +12,7 @@ class BooksData(models.Model):
     published_year = models.IntegerField(blank=True, null=True)
     book_rating = models.FloatField(blank=True, null=True)
     book_pages = models.IntegerField(blank=True, null=True)
+    book_price = models.IntegerField(default=0, blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
 
     def save(self, *arg, **kwargs):

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,10 +25,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&b00m__u8$+n9x%+%67@no429y955a6no)=vgv$8ao^4!3!7gs'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -83,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'books_dataset',
-        'HOST': 'DESKTOP-BBSH3G9\SQLEXPRESS',
-        'PORT': '',
+        'HOST': config('HOST'),
+        'PORT': '', 
         'OPTIONS': {
             'drivers': 'ODBC Driver 17 for SQL Server',
             'trusted_connection': 'yes'

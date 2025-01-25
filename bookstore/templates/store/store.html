@@ -1,5 +1,6 @@
 {% extends 'layout.html'%}
 {% load static %}
+{% block title %}in second read | HOME {% endblock %}
 {% block extra_css%}
 <link rel="stylesheet" href="{% static 'css/store/store.css' %}">
 {% endblock %}
@@ -26,7 +27,7 @@
                 <div class="book-content">
                     <h3 class="book-title">{{book.book_title}}</h3>
                     <p class="book-sub-title">{{book.author}}</p>
-                    <p class="book-price">price</p>
+                    <p class="book-price">{{book.book_price}}$</p>
                 </div>
                 <div class="card-buttons">
                     <button class="btn">Add To Cart</button>

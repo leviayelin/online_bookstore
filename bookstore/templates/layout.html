@@ -4,9 +4,11 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title%}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/layout.css'%}">
     <link rel="stylesheet" href="{% static 'css/utilities.css'%}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/site_logo.png'%}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="wrapper">
@@ -18,7 +20,7 @@
                 <nav id="navbar">
                     <ul>
                         <li><a href="#">logout</a></li>
-                        <li><a href="#">user</a></li>
+                        <li><a href="{% url 'users:user' %}">user</a></li>
                         <li><a href="{% url 'accounts:login' %}">login</a></li>
                         <li><a href="{% url 'accounts:signup'%}">signup</a></li>
                         <li><a href="{% url 'store:home' %}">store</a></li>
@@ -26,7 +28,6 @@
                 </nav>
             </div>
         </header>
-
         <main class="container">
     {% block content %}
 
@@ -35,4 +36,6 @@
         </main>
     </div>
 </body>
+{% block extra_js%}
+{% endblock %}
 </html>

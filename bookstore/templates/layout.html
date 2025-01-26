@@ -21,8 +21,8 @@
                     <ul>
                         <li><a href="#">logout</a></li>
                         <li><a href="{% url 'users:user' %}">user</a></li>
-                        <li><a href="#">login</a></li>
-                        <li><a href="#">signup</a></li>
+                        <li><a href="{% url 'accounts:login' %}">login</a></li>
+                        <li><a href="{% url 'accounts:signup'%}">signup</a></li>
                         <li><a href="{% url 'store:home' %}">store</a></li>
                     </ul>
                 </nav>

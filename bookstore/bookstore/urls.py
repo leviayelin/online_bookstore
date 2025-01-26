@@ -24,6 +24,7 @@ from store import views as Home_store
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('store/', include('store.urls')),
+    path('accounts/', include('accounts.urls')),
     path('users/', include('users.urls')),
     path('', Home_store.store_views, name='home'),
 ]

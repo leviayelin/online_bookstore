@@ -3,7 +3,6 @@ from .models import BooksData
 from django.db import connection
 
 
-# Create your views here.
 def store_views(request):
     books = BooksData.objects.all()
     return render(request, 'store/store.html', {'books':books})
@@ -25,4 +24,5 @@ def details_views(request,slug):
 
 
 # print(get_books_categories())    
+
 

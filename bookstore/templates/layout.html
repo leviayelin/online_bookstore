@@ -19,10 +19,13 @@
                 </div>
                 <nav id="navbar">
                     <ul>
-                        <li><a href="#">logout</a></li>
+                        {% if user.is_authenticated %}
                         <li><a href="{% url 'users:user' %}">user</a></li>
+                        <li><a href="#">logout</a></li>
+                        {% else %}
                         <li><a href="{% url 'accounts:login' %}">login</a></li>
                         <li><a href="{% url 'accounts:signup'%}">signup</a></li>
+                        {% endif %}
                         <li><a href="{% url 'store:home' %}">store</a></li>
                     </ul>
                 </nav>

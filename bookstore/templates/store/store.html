@@ -6,7 +6,6 @@
 {% endblock %}
 {% block content %}
     <section id="categories">
-        <div class="container">
             <nav id="menu-categories">
                 <ul>
                     <li><a href="#">categories</a></li>
@@ -15,22 +14,19 @@
                     <li><a href="#">best seller</a></li>
                 </ul>
             </nav>
-        </div>
     </section>
     <section class="default-container">
         <div class="cards-container">
             {% for book in books %}
             <div class="book-card card-flex">
-                <a class="image" href="{% url 'store:details' slug=book.slug %}">
+                <a class="book-image" href="{% url 'store:details' slug=book.slug %}">
                     <img src="{{book.images}}" alt="book_image">
                 </a>
-                <div class="book-content">
+                <div class="book-card-content">
                     <h3 class="book-title">{{book.book_title}}</h3>
                     <p class="book-sub-title">{{book.author}}</p>
                     <p class="book-price">{{book.book_price}}$</p>
-                </div>
-                <div class="card-buttons">
-                    <button class="btn">Add To Cart</button>
+                    <button class="book-card-btn">Add To Cart</button>
                 </div>
             </div>
             {% endfor %}

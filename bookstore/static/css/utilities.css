@@ -4,13 +4,6 @@
     margin:0 auto;
 }
 
-/* .default-container{
-    height:100%;
-    display:grid;
-    place-items:center;
-    text-align:center;
-} */
-
 .default-container > h1{
     font-size:100px;
 }

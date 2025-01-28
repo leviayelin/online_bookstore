@@ -18,11 +18,19 @@
                     <img src="{% static 'images/logo.png' %}" alt="logo_image">
                 </div>
                 <nav id="navbar">
-                    <ul>
-                        <li><a href="{% url 'logout' %}">logout</a></li>
+                    <ul>              
+                        {% if user.is_authenticated %}
+                        <li>
+                            <form action="{% url 'accounts:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="logout-btn" type="submit">logout</button>
+                            </form>
+                        </li>
                         <li><a href="{% url 'users:user' %}">user</a></li>
+                        {% else %}
                         <li><a href="{% url 'accounts:login' %}">login</a></li>
                         <li><a href="{% url 'accounts:signup'%}">signup</a></li>
+                        {% endif %}
                         <li><a href="{% url 'store:home' %}">store</a></li>
                     </ul>
                 </nav>

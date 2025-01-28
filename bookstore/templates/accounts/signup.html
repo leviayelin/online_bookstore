@@ -1,9 +1,15 @@
 {% extends 'layout.html'%}
+{% block title %}in second read | SIGNUP {% endblock %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/accounts/signup.css'%}">
+{% endblock %}
 {% block content %}
-<h1>Signup</h1>
-<form class="site-form" action="{% url 'accounts:signup' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Signup">
-</form>
+<div class="form-container">
+    <form class="site-form" class="site-form" action="{% url 'accounts:signup' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="submit-btn" type="submit">signup</button>
+    </form>
+</div>
 {% endblock %}

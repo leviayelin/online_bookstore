@@ -9,7 +9,6 @@
 #user-manu{
     height:100%;
     width:200px;
-    border-left:2px solid #333;
 }
 
 #user-manu ul li a{
@@ -25,11 +24,11 @@
     display:inline-block;
 }
 
-
 #user-manu-showcase{
     height:100%;
     width:100%;
-    /* background:skyblue; */
+    background:skyblue;
+    border-radius:12px;
 }
 
 

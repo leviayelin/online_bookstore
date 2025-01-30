@@ -5,10 +5,12 @@
 }
 
 #details-container{
+    width:80%;
     padding:100px 0 0 0;
+    margin:0 auto;
     display:flex;
     flex-direction:row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .details-image > img{
@@ -18,9 +20,9 @@
 }
 
 .details-content{
-    width:420px !important;
+    width:450px !important;
     height:100%;
-    padding:0 20px 20px 40px;
+    padding:0 20px 20px 0;
     display:flex;
     flex-direction:column;
 }

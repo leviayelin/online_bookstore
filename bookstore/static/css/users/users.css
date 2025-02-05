@@ -6,13 +6,33 @@
     direction:rtl;
 }
 
+
+
 #user-manu{
     height:100%;
     width:200px;
 }
 
+.profile{
+    width:100px;
+    height:100px;
+    border-radius:100%;
+}
+
+.profile > img{
+    width:100%;
+    height: 100%;
+    display: block;
+    border-radius:100%;
+    border:3px solid #999;
+}
+
 #user-manu ul li a{
     text-decoration:none;
+    font-weight:500;
+    text-transform:capitalize;  
+    color:#333; 
+    font-size:16px; 
 }
 
 #user-manu ul li{
@@ -20,6 +40,7 @@
 }
 
 #user-manu ul{
+    width:100%;
     list-style:none;
     display:inline-block;
 }
@@ -27,8 +48,43 @@
 #user-manu-showcase{
     height:100%;
     width:100%;
-    background:skyblue;
+    padding:20px;
+    border:1px solid #333;
     border-radius:12px;
 }
+
+.box {
+    display: none;
+}
+
+.box.active {
+    display: block;
+    width:100%;
+    height:100%;
+    direction:ltr;
+}
+
+/*users - orders */
+
+.orders-flex{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.orders-flex > table{
+    width:500px;
+    border-collapse: collapse;
+}
+
+table > tbody > tr > th,
+table > tbody > tr > td{
+    padding:10px 40px;
+    border:1px solid #333;   
+}
+
+/*users - wishlist */
 
 

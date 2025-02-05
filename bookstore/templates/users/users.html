@@ -6,16 +6,55 @@
 {% block content %}
 <div class="user-page-flex">
     <div id="user-manu">
+        <div class="profile">
+            <img src="{% static 'images/profile-1.jpg'%}" alt="profile_image">
+        </div>
         <h2>user name</h2>
         <ul>
-            <li><a href="#">orders</a></li>
-            <li><a href="#">fevorites</a></li>
-            <li><a href="#">order history</a></li>
-            <li><a href="#">messages</a></li>
-            <li><a href="#">account setting</a></li>
+            <li><a class="link" id="orders-link" href="#">orders</a></li>
+            <li><a class="link" id="wishlist-link" href="#">wishlist</a></li>
+            <li><a class="link" id="setting-link" href="#">setting</a></li>
         </ul>
     </div>
     <div id="user-manu-showcase">
+        <div class="box" id="orders">
+                <div class="orders-flex">
+                    <table>
+                        <tr>
+                            <th>product</th>
+                            <th>quantity</th>
+                            <th>sub-total</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <h2>total:</h2>
+                </div>
+        </div>
+        <div class="box" id="wishlist">
+            <h1>users wishlist</h1>
+        </div>
+        <div class="box" id="setting">
+            <h1>users account settings</h1>
+        </div>
     </div>
 </div>
 {% endblock%}

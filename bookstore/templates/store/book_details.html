@@ -14,12 +14,13 @@
             <p>{{book_details.author}}</p>
             <p>Written Worlds Books & Co.</p>
             <p>published year :{{book_details.published_year}}</p>
+            <p>rating : {{book_details.book_rating}}</p>
             <div class="content-info">
                 <p class="price">{{book_details.book_price}}$</p>
             </div>
             <div id="buttons">
-                <button class="add_btn">add to cart</button>
-                <button class="buy_btn">wishlist</button>
+                <button class="add_btn">wishlist</button>
+                <button class="buy_btn"><a href="{% url 'store:add_to_cart' book_details.book_id %}">add to cart</a></button>
             </div>
             <div class="details-plot">
                 <h2>description</h2>

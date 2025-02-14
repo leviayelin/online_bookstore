@@ -6,8 +6,6 @@
     direction:rtl;
 }
 
-
-
 #user-manu{
     height:100%;
     width:200px;
@@ -25,6 +23,10 @@
     display: block;
     border-radius:100%;
     border:3px solid #999;
+}
+
+#user-manu > h2{
+    font-size:16px;
 }
 
 #user-manu ul li a{
@@ -75,16 +77,98 @@
 }
 
 .orders-flex > table{
-    width:500px;
+    width:100%;
     border-collapse: collapse;
 }
 
 table > tbody > tr > th,
 table > tbody > tr > td{
     padding:10px 40px;
-    border:1px solid #333;   
+    text-align:center;
+    border-bottom:1px solid #333;  
 }
 
-/*users - wishlist */
+table > tbody > tr > td > a{
+    width:20px;
+    height:20px;
+}
+
+table > tbody > tr > td > a > img{
+    width:20px;
+    height:20px;
+    display:block;
+}
+
+/* users - wishlist */
+
+/* users - settings */
+.setting-form{
+    width:500px;
+    padding:20px;
+}
+
+.setting-form > div > fieldset{
+    display:none;
+}
+.setting-form .helptext{
+    display:none;
+}
+
+.setting-form > .errorlist{
+    color:#F3C623;
+    list-style:none;
+}
+
+.setting-form label{
+    display:block;
+    margin-bottom:10px;
+    font-size:13px;
+    color:inherit;
+}
+
+.setting-form > div {
+    margin:20px 0;
+}
+
+.setting-form > div > input[name="username"],
+.setting-form > div > input[name="email"]{
+    width:100%;
+    padding:4px;
+    font-size:15px;
+    color:#1E201E;
+    border:2px solid #333;
+    border-radius:4px;
+    outline:none;
+}
+
+.setting-form > div > input[name="profile_image"]{
+    border:none;
+}
+
+.save-btn{
+    width:100%;
+    padding:10px 0;
+    color:#fff;
+    text-transform:uppercase;
+    font-weight:500;
+    background:#333;
+    border:2px solid #333;
+    border-radius:4px;
+    cursor:pointer;
+    outline:none;
+}
+
+.save-btn:hover{
+    color:#fff;
+    background:#333;
+    border:2px solid #333;
+}
+
+.save-btn:active{
+    color:#333;
+    background:#fff;
+    border:2px solid #333;
+}
+
 
 

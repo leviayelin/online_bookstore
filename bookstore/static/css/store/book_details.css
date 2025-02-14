@@ -23,6 +23,7 @@
     width:450px !important;
     height:100%;
     padding:0 20px 20px 0;
+    margin-left:20px;
     display:flex;
     flex-direction:column;
 }
@@ -74,10 +75,20 @@
     border:2px solid var(--dark-color);
 }
 
+.buy_btn > a{
+    text-decoration:none;
+    color:#fff;
+}
+
+.buy_btn:hover{
+    background:#111;
+}
+
 .details-plot{
     margin-top:40px;
 }
 
 .details-plot > h2{
     margin-bottom:20px;
+    text-transform:capitalize;
 }

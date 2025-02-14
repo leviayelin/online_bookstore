@@ -31,6 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
 # Application definition
@@ -44,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'accounts',
-    'users'
+    'users',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

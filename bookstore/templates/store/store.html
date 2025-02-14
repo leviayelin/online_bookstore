@@ -19,6 +19,7 @@
     <section class="default-container">
         <div class="cards-container">
             {% for book in books %}
+        
             <div class="book-card card-flex">
                 <a class="book-image" href="{% url 'store:details' slug=book.slug %}">
                     <img src="{{book.images}}" alt="book_image">
@@ -27,7 +28,7 @@
                     <h3 class="book-title">{{book.book_title}}</h3>
                     <p class="book-sub-title">{{book.author}}</p>
                     <p class="book-price">{{book.book_price}}$</p>
-                    <button class="book-card-btn">Add To Cart</button>
+                    <button class="book-card-btn"><a href="{% url 'store:add_to_cart' book.book_id %}">Add To Cart</a></button>
                 </div>
             </div>
             {% endfor %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from accounts.models import CustomUser
 
 # Create your models here.
 class BooksData(models.Model):
@@ -10,7 +11,7 @@ class BooksData(models.Model):
     images = models.URLField(max_length=500, blank=True, null=True)
     book_description = models.TextField(db_collation='Hebrew_CI_AS', blank=True, null=True)
     published_year = models.IntegerField(blank=True, null=True)
-    book_rating = models.FloatField(blank=True, null=True)
+    book_rating = models.PositiveIntegerField(blank=True, null=True)
     book_pages = models.IntegerField(blank=True, null=True)
     book_price = models.IntegerField(default=0, blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
@@ -22,3 +23,10 @@ class BooksData(models.Model):
 
     class Meta:
         db_table = 'books_data'
+
+
+class AddToCart(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Cart - {self.user.username}"

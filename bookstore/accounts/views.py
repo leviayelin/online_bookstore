@@ -1,10 +1,10 @@
 from django.contrib.auth import login, logout
-from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 
 
+# signup views
 def signup_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST, request.FILES)
@@ -16,6 +16,7 @@ def signup_view(request):
         form = CustomUserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
+# login views
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
@@ -30,6 +31,7 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
 
+# logout views
 def logout_view(request):
     if request.method == "POST":
         logout(request)

@@ -1,6 +1,6 @@
 {% extends 'layout.html'%}
 {% load static %}
-{% block title %}in second read | HOME {% endblock %}
+{% block title %}in second read | Categories {% endblock %}
 {% block extra_css%}
 <link rel="stylesheet" href="{% static 'css/store/store.css' %}">
 {% endblock %}
@@ -11,8 +11,8 @@
                     <li id="sub-category">
                         <p>categories</p>
                         <div id="categories-menu">
-                            {% for item in categories%}
-                            <a href="{% url 'store:category' book_category=item.name %}">{{item.name}}</a>
+                            {% for item in category%}
+                            <a href="{% url 'store:category' item.name %}">{{item.name}}</a>
                             {% endfor %}
                         </div>
                     </li>
@@ -24,8 +24,9 @@
     </section>
 
     <section class="default-container">
+        <h2>{{title}}</h2>
         <div class="cards-container">
-            {% for book in books %}
+            {% for book in categories %}
         
             <div class="book-card card-flex">
                 <a class="book-image" href="{% url 'store:details' slug=book.slug %}">

@@ -3,11 +3,23 @@ from django.utils.text import slugify
 from accounts.models import CustomUser
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=150, unique=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def save(self, *arg, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*arg, **kwargs)
+
+    def __str__(self):
+        return self.name
+        
 class BooksData(models.Model):
     book_id = models.IntegerField(primary_key=True)
     book_title = models.CharField(max_length=150, db_collation='Hebrew_CI_AS', blank=True, null=True)
     author = models.CharField(max_length=100, db_collation='Hebrew_CI_AS', blank=True, null=True)
-    categorie = models.CharField(max_length=100, db_collation='Hebrew_CI_AS', blank=True, null=True)
+    category = models.ForeignKey(Category, max_length=100, blank=True, null=True, on_delete=models.SET_NULL)
     images = models.URLField(max_length=500, blank=True, null=True)
     book_description = models.TextField(db_collation='Hebrew_CI_AS', blank=True, null=True)
     published_year = models.IntegerField(blank=True, null=True)

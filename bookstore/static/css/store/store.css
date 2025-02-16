@@ -1,7 +1,7 @@
 /* CATEGORIES MENU */
 #categories{
     margin-bottom:50px;
-    padding:30px 0;
+    padding:30px 20px 30px 0;
 }
 
 #menu-categories{
@@ -10,12 +10,11 @@
 
 #menu-categories > ul{
     list-style:none;
-    /* text-align:center; */
 }
 
 #menu-categories > ul > li {
     display:inline-block;
-    padding:0 20px;
+    padding:0 0 0 40px;
 }
 
 #menu-categories > ul > li > a{
@@ -23,6 +22,44 @@
     color:#333;
 }
 
+#sub-category{
+	cursor:pointer;
+}
+
+#categories-menu{
+	display:none;
+	width:80%;
+	margin:auto 0;
+	padding:20px 20px 20px 0;
+	border:1px solid #333;
+	border-top:none;
+	border-radius:0 0 6px 6px;
+	position:absolute;
+	background:#eee;
+}
+
+#categories-menu > a{
+	text-transform:uppercase;
+	padding:10px 40px;
+	text-decoration:none;
+	color:#333;
+	float:right;
+}
+
+#sub-category > p{
+	padding-right:20px;
+}
+
+#sub-category:hover{
+	background:#eee;
+	border-radius:4px 4px 0 0;
+} 
+
+#sub-category:hover #categories-menu{
+	display:block;
+}
+
+/* book-card-list */
 .cards-container{
 	display:grid;
 	grid-template-columns:repeat(auto-fill,minmax(170px,170px));

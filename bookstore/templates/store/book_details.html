@@ -19,7 +19,6 @@
                 <p class="price">{{book_details.book_price}}$</p>
             </div>
             <div id="buttons">
-                <button class="add_btn">wishlist</button>
                 <button class="buy_btn"><a href="{% url 'store:add_to_cart' book_details.book_id %}">add to cart</a></button>
             </div>
             <div class="details-plot">

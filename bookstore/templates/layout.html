@@ -26,7 +26,8 @@
                                 <button class="logout-btn" type="submit">logout</button>
                             </form>
                         </li>
-                        <li><a href="{% url 'users:user' %}">user</a></li>
+                        <li><img src="{%static 'icons/cart.png' %}"></li>
+                        <li><a href="{% url 'users:user' %}">{{user}}</a></li>
                         {% else %}
                         <li><a href="{% url 'accounts:login' %}">login</a></li>
                         <li><a href="{% url 'accounts:signup'%}">signup</a></li>

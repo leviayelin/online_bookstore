@@ -5,12 +5,6 @@ from accounts.models import CustomUser
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=150, unique=True)
-    slug = models.SlugField(unique=True, blank=True, null=True)
-
-    def save(self, *arg, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*arg, **kwargs)
 
     def __str__(self):
         return self.name

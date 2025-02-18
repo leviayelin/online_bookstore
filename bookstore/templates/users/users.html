@@ -6,13 +6,8 @@
 {% block content %}
 <div class="user-page-flex">
     <div id="user-manu">
-        <!-- <div class="profile">
-            <img src="{{user.profile_image.url}}">
-        </div> -->
-        <h2>{{user.username}}</h2>
         <ul>
             <li><a class="link" id="orders-link" href="#">orders</a></li>
-            <li><a class="link" id="wishlist-link" href="#">wishlist</a></li>
             <li><a class="link" id="setting-link" href="#">setting</a></li>
         </ul>
     </div>
@@ -25,10 +20,11 @@
                             <th>quantity</th>
                             <th>subtotal</th>
                         </tr>
+                        {% if cart_item%}
                         {% for item in cart_item %}
                         <tr>
                             <td>{{item.product_book.book_title}}</td>
-                            <td>{{item.quantity}}</td>
+                            <td><input class="order-quantity" type="number" value="{{item.quantity}}" min="1"></td>
                             <td>{{item.subtotal}}$</td>
                             <td>
                                 <a href="{% url 'users:delete' item.id %}">
@@ -37,12 +33,22 @@
                             </td>
                         </tr>
                         {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="4">
+                                your cart is empty
+                            </td>
+                        </tr>
+                        {% endif %}
                     </table>
-                    <h2>total:{{total}}$</h2>
+                    <div id="payment">
+                        <h2 id="total">total: {{total}}$</h2>
+                        <div>
+                            <button>buy</button>
+                            <button>delete all</button>
+                        </div>
+                    </div>
                 </div>
-        </div>
-        <div class="box" id="wishlist">
-            <h1>users wishlist</h1>
         </div>
         <div class="box" id="setting">
             <form class="setting-form" method="post" action="{% url 'users:user' %}" enctype="multipart/form-data">
@@ -56,4 +62,5 @@
 {% endblock%}
 {% block extra_js %}
 <script src="{% static 'js/users/users.js'%}"></script>
+<script src="{% static 'js/users/update.js'%}"></script>
 {% endblock %}     

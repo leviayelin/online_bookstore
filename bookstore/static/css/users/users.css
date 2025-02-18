@@ -99,6 +99,28 @@ table > tbody > tr > td > a > img{
     display:block;
 }
 
+#payment{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+#payment > div > button{
+    padding:5px 20px;
+    font-size:18px;
+    font-weight:500;
+    color:#fff;
+    background:steelblue;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+}
+
+#payment > div > button:hover{
+    background: skyblue;
+}
+
 /* users - wishlist */
 
 /* users - settings */

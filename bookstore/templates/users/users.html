@@ -24,7 +24,7 @@
                         {% for item in cart_item %}
                         <tr>
                             <td>{{item.product_book.book_title}}</td>
-                            <td><input class="order-quantity" type="number" value="{{item.quantity}}" min="1"></td>
+                            <td><input id="{{item.id}}" class="order-quantity" type="number" value="{{item.quantity}}" min="1"></td>
                             <td>{{item.subtotal}}$</td>
                             <td>
                                 <a href="{% url 'users:delete' item.id %}">
@@ -61,6 +61,10 @@
 </div>
 {% endblock%}
 {% block extra_js %}
+<script >
+    var updateURLEl = "{% url 'store:update' %}";
+    var csrfToken = "{{csrf}}";
+</script>
 <script src="{% static 'js/users/users.js'%}"></script>
-<script src="{% static 'js/users/update.js'%}"></script>
+<script src="{% static 'js/store/update.js'%}"></script>
 {% endblock %}     

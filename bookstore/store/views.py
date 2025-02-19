@@ -3,6 +3,10 @@ from .models import BooksData, AddToCart, Category
 from users.models import Cart
 from django.db import connection
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse 
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 
 # book store home view 
 def store_views(request):
@@ -31,6 +35,31 @@ def add_to_cart(request, product_id):
     # Redirect back to the same page
     return redirect(request.META.get('HTTP_REFERER','store:home')) 
 
+@login_required(login_url='/accounts/login/')
+@csrf_exempt
+def update_views(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body) # loads the request
+            print(data)
+            item_id = data.get("item_id")
+            new_quantity = int(data.get("quantity"))
+
+            if new_quantity < 1:
+                return JsonResponse({"success":False, "error":"Invalid quantity"})
+            
+            cart_item = Cart.objects.get(id=item_id, cart__user=request.user)
+            cart_item.quantity = new_quantity
+            cart_item.save()
+
+            return JsonResponse({"success":True})
+        
+        except Exception as e:
+
+            return JsonResponse({"success": False, "error": str(e)})
+        
+    return JsonResponse({"success":False, "error":"Invalid request"})    
+            
 # book details home view 
 def details_views(request,slug):
     bookDetails = BooksData.objects.get(slug=slug)

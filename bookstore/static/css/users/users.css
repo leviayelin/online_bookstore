@@ -1,5 +1,5 @@
 .user-page-flex{
-    height:100%;
+    height:calc(100vh - 70px);
     padding:30px 0 20px 0;
     display:flex;
     flex-direction:row;
@@ -117,11 +117,15 @@ table > tbody > tr > td > a > img{
     cursor:pointer;
 }
 
+#payment > div > button > a{
+    text-decoration:none;
+    color:inherit;
+    background:inherit;
+}
+
 #payment > div > button:hover{
     background: skyblue;
 }
-
-/* users - wishlist */
 
 /* users - settings */
 .setting-form{
@@ -191,6 +195,4 @@ table > tbody > tr > td > a > img{
     background:#fff;
     border:2px solid #333;
 }
-
-
 

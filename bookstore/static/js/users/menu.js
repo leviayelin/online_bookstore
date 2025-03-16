@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
     var links = document.querySelectorAll(".link");
     var boxes = document.querySelectorAll(".box");
-    let orderQuantity = document.querySelector('.order-quantity')
 
     // Function to show the selected section
     function showSection(id) {
@@ -21,5 +21,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Show the first section by default
-    showSection("orders");
+    showSection("showcase");
 });

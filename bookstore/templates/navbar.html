@@ -1,0 +1,17 @@
+ <!-- category nevbar -->
+
+<section id="categories">
+    <nav id="menu-categories">
+        <ul>
+            {% for item in categories%}
+            <li id="sub-category">
+                    <a href="{% url 'store:category' book_category=item.name %}">{{item.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    
+    <!-- <div class="messages">
+        <p>tetsing</p>
+    </div> -->
+</section>

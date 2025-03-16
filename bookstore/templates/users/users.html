@@ -7,64 +7,83 @@
 <div class="user-page-flex">
     <div id="user-manu">
         <ul>
-            <li><a class="link" id="orders-link" href="#">orders</a></li>
+            <li><a class="link" id="showcase-link" href="#">orders</a></li>
+            <li><a class="link" id="history-link" href="#">history</a></li>
             <li><a class="link" id="setting-link" href="#">setting</a></li>
         </ul>
     </div>
     <div id="user-manu-showcase">
-        <div class="box" id="orders">
-                <div class="orders-flex">
-                    <table>
-                        <tr>
-                            <th>product</th>
-                            <th>quantity</th>
-                            <th>subtotal</th>
-                        </tr>
-                        {% if cart_item%}
-                        {% for item in cart_item %}
-                        <tr>
-                            <td>{{item.product_book.book_title}}</td>
-                            <td><input id="{{item.id}}" class="order-quantity" type="number" value="{{item.quantity}}" min="1"></td>
-                            <td>{{item.subtotal}}$</td>
-                            <td>
-                                <a href="{% url 'users:delete' item.id %}">
-                                    <img src="{% static 'icons/close.png'%}" alt="del">
-                                </a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <td colspan="4">
-                                your cart is empty
-                            </td>
-                        </tr>
-                        {% endif %}
-                    </table>
-                    <div id="payment">
-                        <h2 id="total">total: {{total}}$</h2>
-                        <div>
-                            <button>buy</button>
-                            <button>delete all</button>
-                        </div>
-                    </div>
+        
+            <div class="box" id="showcase">
+                {% if user_cart %}
+                <h2>orders</h2>
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>subtoal</th>
+                    </tr>
+                {% for item in user_cart %}
+                    <tr>
+                        <td>{{item.book.title}}</td>
+                        <td>
+                            <input class="order-quantity" type="number" id="{{item.id}}" value="{{item.quantity}}" min="1"></td>
+                        <td id="subtotal">{{item.subtotal}} $</td>
+                        <td>
+                            <button class="delete" id="delete" value="{{item.id}}">x</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+    
+                <div>
+                    <p id="total">total:{{total}}$</p>
+                    <button id="checkout">checkout</button>
+                    <button id="delete-all">delete all</button>
                 </div>
-        </div>
-        <div class="box" id="setting">
-            <form class="setting-form" method="post" action="{% url 'users:user' %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{form}}
-                <button class="save-btn" type="submit">save</button>
-            </form>
-        </div>
+                    {% else %}
+                    <p>empty cart</p>
+                    {% endif %}
+            </div>
+    
+            <div class="box" id="history">
+                <h2>orders-history</h2>
+                <div id="order-history">
+                    {% if order_history %}
+                        {% for order in order_history %}
+                        <div class="order-box" id="order-{{ order.order_id }}">
+                            <p><strong>Order ID:</strong> {{ order.order_id }}</p>
+                            <p><strong>Date:</strong> {{ order.created_at }}</p>
+                            <p><strong>Total Price:</strong> {{ order.total_price }} $</p>
+                            <ul>
+                                {% for item in order.items %}
+                                    <li>{{ item.title }} (x{{ item.quantity }}) — {{ item.subtotal }} $</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                        <button id="clear-history">Clear History</button>
+                    {% else %}
+                        <p>No orders found.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="box" id="setting">
+                <form class="setting-form" method="post" action="{% url 'users:user' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form}}
+                    <button class="save-btn" type="submit">save</button>
+                </form>
+            </div>
     </div>
 </div>
 {% endblock%}
-{% block extra_js %}
-<script >
-    var updateURLEl = "{% url 'store:update' %}";
-    var csrfToken = "{{csrf}}";
-</script>
-<script src="{% static 'js/users/users.js'%}"></script>
-<script src="{% static 'js/store/update.js'%}"></script>
+
+{% block extra_javascript %}
+<script src="{% static 'js/users/menu.js'%}"></script>
+<script src="{% static 'js/users/checkout.js'%}"></script>
+<script src="{% static 'js/users/quantity.js'%}"></script>
+<script src="{% static 'js/users/delete.js'%}"></script>
+<script src="{% static 'js/update_cart.js'%}"></script>
 {% endblock %}     

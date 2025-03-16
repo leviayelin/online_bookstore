@@ -4,8 +4,9 @@ app_name = 'store'
 
 urlpatterns = [
     path('', views.store_views, name="home"),
-    path('add_to_cart/<int:product_id>/', views.add_to_cart, name="add_to_cart"),
-    path('update/', views.update_views, name="update"),
     path('category/<str:book_category>/', views.categories_views, name="category"),
-    path('<slug:slug>/details/', views.details_views, name="details"),
+    path('details/<slug:slug>/<int:id>/', views.details_views, name="details"),
+    path('add_to_cart/', views.add_to_cart_views, name="cart"),
+    path('reviews/add/', views.add_review_views, name="reviews"),
+    path('update/', views.update_views, name="update")
 ]

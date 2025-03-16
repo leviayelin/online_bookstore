@@ -10,8 +10,10 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/site_logo.png'%}">
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
     <div class="wrapper">
+
         <header>
             <div class="container flex">
                 <div id="logo">
@@ -20,31 +22,48 @@
                 <nav id="navbar">
                     <ul>              
                         {% if user.is_authenticated %}
+
                         <li>
-                            <form action="{% url 'accounts:logout' %}" method="post">
+                            <form id="logout-form" action="{% url 'accounts:logout' %}" method="post">
                                 {% csrf_token %}
                                 <button class="logout-btn" type="submit">logout</button>
                             </form>
                         </li>
-                        <li><img src="{%static 'icons/cart.png' %}"></li>
-                        <li><a href="{% url 'users:user' %}">{{user}}</a></li>
+                        <li id="user-cart">
+                            <a href="{% url 'users:user' %}">
+                            <img id="cart-icon" src="{%static 'icons/cart.png' %}">
+                            <span class="cart-items-added" id="quantity">{{ total_quantity|default:0 }}</span>
+                            </a>
+                        </li>
                         {% else %}
+
                         <li><a href="{% url 'accounts:login' %}">login</a></li>
                         <li><a href="{% url 'accounts:signup'%}">signup</a></li>
+
                         {% endif %}
                         <li><a href="{% url 'store:home' %}">home</a></li>
                     </ul>
                 </nav>
             </div>
+
         </header>
+
         <main class="container">
     {% block content %}
 
     
     {% endblock %}
         </main>
+
+        <footer>
+        
+        </footer>
+
     </div>
 </body>
-{% block extra_js%}
+
+<script>const csrfToken = '{{csrf}}';</script>
+<script src="{% static 'js/update_cart.js'%}"></script>
+{% block extra_javascript%}
 {% endblock %}
 </html>

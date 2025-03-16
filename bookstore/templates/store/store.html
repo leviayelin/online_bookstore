@@ -5,40 +5,31 @@
 <link rel="stylesheet" href="{% static 'css/store/store.css' %}">
 {% endblock %}
 {% block content %}
-    <section id="categories">
-            <nav id="menu-categories">
-                <ul>
-                    <li id="sub-category">
-                        <p>categories</p>
-                        <div id="categories-menu">
-                            {% for item in categories%}
-                            <a href="{% url 'store:category' book_category=item.name %}">{{item.name}}</a>
-                            {% endfor %}
-                        </div>
-                    </li>
-                    <li><a href="#">new commers</a></li>
-                    <li><a href="#">on-sale</a></li>
-                    <li><a href="#">best seller</a></li>
-                </ul>
-            </nav>
-    </section>
+
+    {% include 'navbar.html' %}                          
 
     <section class="default-container">
         <div class="cards-container">
             {% for book in books %}
         
             <div class="book-card card-flex">
-                <a class="book-image" href="{% url 'store:details' slug=book.slug %}">
+                <a class="book-image" href="{% url 'store:details' slug=book.slug id=book.id%}">
                     <img src="{{book.images}}" alt="book_image">
                 </a>
                 <div class="book-card-content">
-                    <h3 class="book-title">{{book.book_title}}</h3>
+                    <h3 class="book-title">{{book.title}}</h3>
                     <p class="book-sub-title">{{book.author}}</p>
-                    <p class="book-price">{{book.book_price}}$</p>
-                    <button class="book-card-btn"><a href="{% url 'store:add_to_cart' book.book_id %}">Add To Cart</a></button>
+                    <p class="book-price">{{book.price}}$</p>
+                    <button class="add-book-btn" id="add-book" value="{{book.id}}">Add To Cart</button>
                 </div>
             </div>
+
             {% endfor %}
         </div>
-    </section>    
+    </section>   
+    
+{% endblock %}
+
+{% block extra_javascript %}
+<script src="{% static 'js/store/cart.js'%}"></script>
 {% endblock %}

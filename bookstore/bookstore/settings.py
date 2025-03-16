@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'books_dataset',
+        'NAME': 'bookstore_dataset',
         'HOST': config('HOST'),
         'PORT': '', 
         'OPTIONS': {

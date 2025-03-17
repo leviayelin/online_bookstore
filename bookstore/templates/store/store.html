@@ -7,8 +7,11 @@
 {% block content %}
 
     {% include 'navbar.html' %}                          
+    <div class="showcase-image">
 
-    <section class="default-container">
+    </div>
+
+    <section class="default-container container">
         <div class="cards-container">
             {% for book in books %}
         
@@ -20,7 +23,7 @@
                     <h3 class="book-title">{{book.title}}</h3>
                     <p class="book-sub-title">{{book.author}}</p>
                     <p class="book-price">{{book.price}}$</p>
-                    <button class="add-book-btn" id="add-book" value="{{book.id}}">Add To Cart</button>
+                    <button class="add-book-btn btn" id="add-book" value="{{book.id}}">Add To Cart</button>
                 </div>
             </div>
 

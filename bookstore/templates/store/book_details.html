@@ -4,8 +4,12 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/store/book_details.css' %}">
 {% endblock %}
+
 {% block content %}
-    <div id="details-container">
+
+    {% include 'navbar.html' %}
+
+    <div id="details-container" class="container">
         <div class="details-image">
             <img src="{{book_details.images}}" alt="book_poster">
         </div>
@@ -19,7 +23,7 @@
                 <p class="price">{{book_details.price}}$</p>
             </div>
             <div id="buttons">
-            <button class="add-book-btn" value="{{book_details.id}}">add to cart</button>
+            <button class="add-book-btn btn" value="{{book_details.id}}">add to cart</button>
             </div>
             <div class="details-plot">
                 <h2>description</h2>

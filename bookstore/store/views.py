@@ -4,7 +4,6 @@ from users.models import CartItem
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse 
 from django.views.decorators.csrf import csrf_exempt
-from .forms import ReviewForm
 from django.urls import reverse
 import json
 
@@ -38,11 +37,13 @@ def categories_views(request, book_category):
 def details_views(request,slug, id):
     bookDetails = BooksList.objects.get(slug=slug, id=id)
     book_reviews = Reviews.objects.filter(book=bookDetails).order_by('-date')
+    category = Category.objects.all()
 
     return render(request, 'store/book_details.html', {
         
         'book_details':bookDetails,
-        'book_reviews':book_reviews
+        'book_reviews':book_reviews,
+        'categories':category
 
         })
 

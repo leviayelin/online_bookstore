@@ -20,8 +20,16 @@
                     <img src="{% static 'images/logo.png' %}" alt="logo_image">
                 </div>
                 <nav id="navbar">
-                    <ul>              
+                    <ul>       
+                        <li><a href="{% url 'store:home' %}">home</a></li>
                         {% if user.is_authenticated %}
+
+                        <li id="user-cart">
+                            <a href="{% url 'users:user' %}">
+                            <img id="cart-icon" src="{%static 'icons/cart.png' %}">
+                            <span class="cart-items-added" id="quantity">{{ total_quantity|default:0 }}</span>
+                            </a>
+                        </li>
 
                         <li>
                             <form id="logout-form" action="{% url 'accounts:logout' %}" method="post">
@@ -29,26 +37,19 @@
                                 <button class="logout-btn" type="submit">logout</button>
                             </form>
                         </li>
-                        <li id="user-cart">
-                            <a href="{% url 'users:user' %}">
-                            <img id="cart-icon" src="{%static 'icons/cart.png' %}">
-                            <span class="cart-items-added" id="quantity">{{ total_quantity|default:0 }}</span>
-                            </a>
-                        </li>
                         {% else %}
 
                         <li><a href="{% url 'accounts:login' %}">login</a></li>
                         <li><a href="{% url 'accounts:signup'%}">signup</a></li>
 
                         {% endif %}
-                        <li><a href="{% url 'store:home' %}">home</a></li>
                     </ul>
                 </nav>
             </div>
 
         </header>
 
-        <main class="container">
+        <main>
     {% block content %}
 
     

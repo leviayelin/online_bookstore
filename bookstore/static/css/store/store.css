@@ -1,15 +1,23 @@
+.showcase-image{
+	height:200px;
+	width:100%;
+	margin-bottom:50px;
+	background-image:url("../../images/book-background-1.jpg");
+}
+
 /* book-card-list */
 .cards-container{
 	display:grid;
-	grid-template-columns:repeat(auto-fill,minmax(170px,170px));
+	grid-template-columns:repeat(auto-fill,minmax(200px,170px));
 	justify-content: center;
 	column-gap:10px;
-	row-gap:30px;
+	row-gap:10px;
 }
 
 .book-card{
 	max-width:200px;
 	margin:5px;
+	padding:3px;
 	border:1px solid var(--gary-color);
 	transition:box-shadow .3s linear;
 	text-align:center;

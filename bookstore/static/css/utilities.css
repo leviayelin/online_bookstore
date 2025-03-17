@@ -4,6 +4,10 @@
     margin:0 auto;
 }
 
+.default-container{
+    min-height:430px;
+}
+
 .default-container > h1{
     font-size:100px;
 }
@@ -13,6 +17,16 @@
     height:600px;
     background:var(--primery-color);
     border-radius:8px;
+}
+
+.btn{
+    width:100%;
+    padding:5px 0;
+    background:#333;
+    text-transform:lowercase;
+    color:var(--light-color);
+    border:none;
+    border-radius:2px;
 }
 
 /* ALIGNING ELEMENTS */

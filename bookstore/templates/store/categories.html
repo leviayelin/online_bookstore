@@ -4,12 +4,18 @@
 {% block extra_css%}
 <link rel="stylesheet" href="{% static 'css/store/store.css' %}">
 {% endblock %}
+
 {% block content %}
 
-    {% include 'navbar.html' %}                          
+    {% include 'navbar.html' %}
 
+    <div class="showcase-header">
+        <div class="container">
+            <h2>category / {{title}}</h2>
+        </div>
+    </div>
 
-    <section class="default-container">
+    <section class="default-container container">
         <div>
         <h2>category / {{title}}</h2>
         </div>
@@ -24,7 +30,7 @@
                     <h3 class="book-title">{{book.title}}</h3>
                     <p class="book-sub-title">{{book.author}}</p>
                     <p class="book-price">{{book.price}}$</p>
-                    <button class="add-book-btn" value="{{book.id}}">Add To Cart</button>
+                    <button class="add-book-btn btn" value="{{book.id}}">Add To Cart</button>
                 </div>
             </div>
 

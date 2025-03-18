@@ -9,34 +9,43 @@
 
     {% include 'navbar.html' %}
 
-    <div id="details-container" class="container">
-        <div class="details-image">
-            <img src="{{book_details.images}}" alt="book_poster">
+<section class="details-bg">
+
+    <div id="details-container">
+        
+        <div class="item-info">
+            <div class="details-image">
+                <img src="{{book_details.images}}" alt="book_poster">
+            </div>
+
+            <div class="details-content">
+                <h1>{{book_details.title}}</h1>
+                <p>{{book_details.author}}</p>
+                <p>Written Worlds Books & Co.</p>
+                <p>published year :{{book_details.published_year}}</p>
+                <p>rating : {{book_details.rating}}</p>
+                <div class="content-info">
+                    <p class="price">{{book_details.price}}$</p>
+                </div>
+                <div id="buttons">
+                <button class="add-book-btn btn" value="{{book_details.id}}">add to cart</button>
+                </div>
+            </div>
         </div>
-        <div class="details-content">
-            <h1>{{book_details.title}}</h1>
-            <p>{{book_details.author}}</p>
-            <p>Written Worlds Books & Co.</p>
-            <p>published year :{{book_details.published_year}}</p>
-            <p>rating : {{book_details.rating}}</p>
-            <div class="content-info">
-                <p class="price">{{book_details.price}}$</p>
-            </div>
-            <div id="buttons">
-            <button class="add-book-btn btn" value="{{book_details.id}}">add to cart</button>
-            </div>
-            <div class="details-plot">
-                <h2>description</h2>
-                <p>{{book_details.description}}</p>
-            </div>
+
+        <div class="details-plot">
+            <h2>description</h2>
+            <hr>
+            <p>{{book_details.description}}</p>
         </div>
+
     </div>
 
     <!-- reviews section  -->
 
-    <section id="reviews">
+    <div id="reviews">
 
-        <h2>users reviews</h2>
+        <h2>book reviews</h2>
 
         <div>   
             {% if user.is_authenticated %}
@@ -47,10 +56,10 @@
                     <input type="text" name="title" id="title" placeholder="review title" required>  
                     <label for="comment">comment:</label>
                     <textarea id="comment" name="comment" cols="30" rows="10" required></textarea> 
-                    <button type="submit">add review</button>
+                    <button class="btn" type="submit">add review</button>
                 </form>
             {% else%}
-                <a href="{% url 'accounts:login'%}">login to add your review</a>
+                <a href="{% url 'accounts:login'%}"><button id="review-btn" class="btn">login to add your review</button></a>
             {% endif %}
         </div>
 
@@ -70,11 +79,16 @@
 
                 {% endfor %}
             {% else %}
-                <p>no reviews yet!</p>
+                <div id="no-reviews">
+                    <h2>this book as no reviews yet,<br>
+                    be the first to comment!</h2>
+                </div>
             {% endif%}  
 
         </div>
-    </section>
+
+    </div>
+</section>    
 {% endblock %}
 
 {% block extra_javascript %}

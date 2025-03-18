@@ -1,12 +1,34 @@
 .showcase-image{
-	height:200px;
+	height:300px;
 	width:100%;
-	margin-bottom:50px;
-	background-image:url("../../images/book-background-1.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url("../../images/book-background-1.jpg");
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+
+.showcase-image > .content{
+	width:70%;
+	text-align:center;
+}
+
+.showcase-image > .content > h2{
+	margin-bottom:30px;
+	font-size:50px;
+	color:#fff;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.showcase-image > .content > p{
+	color:#fff;	
 }
 
 /* book-card-list */
 .cards-container{
+	margin-top:100px;
+	margin-bottom:100px;
 	display:grid;
 	grid-template-columns:repeat(auto-fill,minmax(200px,170px));
 	justify-content: center;
@@ -18,8 +40,9 @@
 	max-width:200px;
 	margin:5px;
 	padding:3px;
-	border:1px solid var(--gary-color);
-	transition:box-shadow .3s linear;
+	border:2px solid var(--gary-color);
+	border-radius:4px;
+	transition:all .3s linear;
 	text-align:center;
 }
 

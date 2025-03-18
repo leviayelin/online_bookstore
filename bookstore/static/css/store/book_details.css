@@ -1,17 +1,23 @@
-.details-flex{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+.details-bg{
+    background:linear-gradient(to top,rgba(225,225,225,0.9),rgba(225,225,225,0.9)80%,rgba(225,225,225,0.5)),url('../../images/book-background-1.jpg');
+    background-size: cover;
+    overflow: visible;
 }
 
 #details-container{
-    width:80%;
+    width:60%;
     padding:100px 0 0 0;
     margin:0 auto;
     display:flex;
-    flex-direction:row;
-    justify-content: space-evenly;
+    flex-direction:column;
 }
+
+#details-container > .item-info{
+    margin-bottom:50px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+} 
 
 .details-image > img{
     width:250px;
@@ -20,10 +26,12 @@
 }
 
 .details-content{
-    width:450px !important;
+    width:500px !important;
     height:100%;
-    padding:0 20px 20px 0;
-    margin-left:20px;
+    padding:50px 20px 20px 80px;
+    margin-left:50px;
+    margin-top:30px;
+    border-left:1px solid #333;
     display:flex;
     flex-direction:column;
 }
@@ -86,7 +94,8 @@
 }
 
 .details-plot{
-    margin-top:40px;
+    margin:40px 0;
+    padding:0 40px;
 }
 
 .details-plot > h2{
@@ -94,37 +103,54 @@
     text-transform:capitalize;
 }
 
+.details-plot > hr{
+    margin:15px 0;
+}
+
 /* review section  */
 #reviews{
-    width:80%;
-    padding:100px 0 0 0;
-    margin:0 auto;
+    width:60%;
+    padding:100px 40px 100px 40px;
+    margin:0 auto 0 auto;
     display:flex;
     flex-direction:column;
     justify-content: space-evenly;
 }
 
-#add-reviews{
+#reviews_form{
     width:100%;
     padding:10px;
-    border:1px solid #333;
     border-radius:6px;
     display:flex;
     flex-direction:column;
 }
 
-#add-reviews > input,
-#add-reviews > textarea{
+#reviews_form> input,
+#reviews_form > textarea{
     padding:5px;
+    border:2px solid #ccc;
+    border-radius:4px;
 }
 
-#add-reviews > textarea{
+#reviews_form> input:hover,
+#reviews_form> input:active,
+#reviews_form > textarea:hover,
+#reviews_form > textarea:active{
+    border:2px solid #888;
+    transition:border .3s linear;
+}
+
+#reviews_form > textarea{
     width:100%;
-    /* height:300px; */
+    height:200px;
 }
 
-#add-reviews > button{
+#reviews_form > button{
     margin:15px 0;
+}
+
+#review-btn{
+    margin:30px 0;
 }
 
 #users-reviews-list{
@@ -141,4 +167,22 @@
     margin:10px 0;
     padding:20px;
     border:1px solid #333;
+}
+
+/* REVIEWS - no reviews*/
+#no-reviews{
+    width:100%;
+    height:300px;
+    margin:40px 0;
+    border:6px dashed #888;
+    border-radius:4px;
+    display:flex;
+    align-items: center;
+    text-align: center;
+}
+
+#no-reviews > h2{
+    width:100%;
+    color:#999;
+    text-transform:uppercase;
 }

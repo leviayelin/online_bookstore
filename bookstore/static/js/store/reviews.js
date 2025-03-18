@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function(){
                     </div>
                 `;
 
+                document.getElementById('no-reviews').style.display = 'none';
+
                 // If there are no reviews, replace the message
                 if (reviewList.innerHTML.includes('no reviews yet!')) {
                     reviewList.innerHTML = newReview;
@@ -70,10 +72,6 @@ document.addEventListener('DOMContentLoaded', function(){
                     reviewList.insertAdjacentHTML('afterbegin', newReview);
                     reviewFormEl.reset();
                 }
-                // reviewList.insertAdjacentHTML('afterbegin', newReview); 
-                // if (reviewFormEl) { // Ensure the form exists before resetting
-                //     reviewFormEl.reset();
-                // }
             }
         })
         .catch(error => {

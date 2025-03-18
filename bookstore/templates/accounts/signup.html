@@ -5,12 +5,17 @@
 <link rel="stylesheet" href="{% static 'css/accounts/signup.css'%}">
 {% endblock %}
 {% block content %}
+
 <div class="form-container">
-    <form class="site-form" class="site-form" action="{% url 'accounts:signup' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button class="submit-btn" type="submit">signup</button>
-    </form>
-    <p>allready have account? click here to login <a href="{% url 'accounts:login' %}">login</a></p>
+    <div class="container flex">
+
+        <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button class="submit-btn" type="submit">signup</button>
+            <p>allready have account? click here to <a href="{% url 'accounts:login' %}">login</a></p>
+        </form>
+    </div>
 </div>
+ 
 {% endblock %}

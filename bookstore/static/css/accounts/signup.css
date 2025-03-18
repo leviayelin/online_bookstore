@@ -1,34 +1,42 @@
 .form-container{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
     height:calc(100vh - 70px);
+    background:linear-gradient(to left ,rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('../../images/letter-bg.jpg');
+    background-size:cover;
+}
+
+.form-container > .flex{
+    flex-direction:column;
+    justify-content: center;
+    align-items: end;
 }
 
 .site-form{
-    width:500px;
+    width:450px;
     margin-bottom:20px;
     padding:20px;
     border:2px solid #F5F5F5;
-    box-shadow:0 3px 5px rgba(0,0,0,0.3);
+    border-radius:12px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+    background:#fff;
 }
 
 .site-form > div > fieldset{
     display:none;
 }
+
 .site-form .helptext{
     display:none;
 }
 
-.site-form > .errorlist{
-    color:#F3C623;
+.site-form  .errorlist{
+    color:#BF3131;
     list-style:none;
+    font-size:13px;
 }
 
 .site-form label{
     display:block;
-    margin-bottom:10px;
+    padding-bottom:10px;
     font-size:13px;
     color:inherit;
 }
@@ -40,9 +48,20 @@
     font-size:15px;
     color:#1E201E;
     border:0;
-    border-bottom:1px solid #ccc;
+    border:2px solid #ccc;
     border-radius:4px;
     outline:none;
+}
+
+.site-form input:hover,
+.site-form input:active{
+    border:2px solid #888;
+}
+
+.site-form > p{
+    text-align:center;
+    margin:30px 0 15px 0;
+    font-size:15px;
 }
 
 .submit-btn{
@@ -60,8 +79,9 @@
 
 .submit-btn:hover{
     color:#fff;
-    background:#333;
+    background:#111;
     border:2px solid #333;
+    transition:background .3s linear;
 }
 
 .submit-btn:active{

@@ -49,7 +49,7 @@
 
 #user-manu-showcase{
     height:100%;
-    width:100%;
+    width:70%;
     padding:20px;
     border:1px solid #333;
     border-radius:12px;
@@ -61,7 +61,8 @@
 
 .box.active {
     display: block;
-    width:100%;
+    /* width:70%; */
+    margin:auto 0;
     height:100%;
     direction:ltr;
 }
@@ -127,9 +128,18 @@ table > tbody > tr > td > a > img{
     background: skyblue;
 }
 
+.btn-delete{
+    margin:15px 0;
+}
+/* orders*/
+.order-box{
+    border-bottom:2px solid #333;
+    padding-bottom:20px;
+    margin:20px 0 30px 0;
+}
+
 /* users - settings */
 .setting-form{
-    width:500px;
     padding:20px;
 }
 

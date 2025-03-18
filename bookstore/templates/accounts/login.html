@@ -6,14 +6,18 @@
 {% endblock %}
 {% block content %}
 <div class="form-container">
-    <form class="site-form" action="{% url 'accounts:login' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        {% if request.GET.next %}
-            <input type="hidden" name="next" value="{{ request.GET.next }}">
-        {% endif %}
-        <button class="submit-btn" type="submit" >login</button>
-    </form>
-    <p>don't have account yet? click here <a href="{% url 'accounts:signup'%}">signup</a></p>
+    <div class="container flex">
+
+        <form class="site-form" action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+            <button class="submit-btn" type="submit" >login</button>
+            <p>don't have account yet? click here to <a href="{% url 'accounts:signup'%}">signup</a></p>
+        </form>
+
+    </div>
 </div>
 {% endblock %}

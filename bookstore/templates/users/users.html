@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/users/users.css'%}">
 {% endblock %}
 {% block content %}
-<div class="user-page-flex">
+<div class="user-page-flex container">
     <div id="user-manu">
         <ul>
             <li><a class="link" id="showcase-link" href="#">orders</a></li>
@@ -38,8 +38,8 @@
     
                 <div>
                     <p id="total">total:{{total}}$</p>
-                    <button id="checkout">checkout</button>
-                    <button id="delete-all">delete all</button>
+                    <button id="checkout" class="btn btn-checkout">checkout</button>
+                    <button id="delete-all" class="btn btn-delete">delete all</button>
                 </div>
                     {% else %}
                     <p>empty cart</p>
@@ -62,7 +62,7 @@
                             </ul>
                         </div>
                         {% endfor %}
-                        <button id="clear-history">Clear History</button>
+                        <button id="clear-history" class="btn ">Clear History</button>
                     {% else %}
                         <p>No orders found.</p>
                     {% endif %}

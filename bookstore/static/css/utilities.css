@@ -29,6 +29,11 @@
     border-radius:2px;
 }
 
+.btn:hover{
+    background:#111;
+    transition:background .3s linear;
+}
+
 /* ALIGNING ELEMENTS */
 .flex{
     height:100%;

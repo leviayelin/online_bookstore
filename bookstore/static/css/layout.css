@@ -168,7 +168,7 @@ main{
 }
 
 #menu-categories {
-    padding:50px 0 15px 0;
+    padding:50px 0 10px 0;
     background: inherit;
 }
 
@@ -202,10 +202,12 @@ main{
 
 #sub-category > a{
 	padding-bottom:5px;
+    border-bottom:2px solid #333;
 }
 
 #sub-category > a:hover{
     border-bottom:2px solid var(--light-color);
+    transition:all .3s linear;
 } 
 
 .showcase-header{
@@ -214,8 +216,8 @@ main{
     padding:20px 0;
     display:flex;
     align-items: end;
-	margin-bottom:50px;
-    background:#994D1C;
+    background:linear-gradient(to left,rgba(0,0,0,0)50%,rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../images/categories-background.jpg');
+    background-size: cover;
 }
 
 .showcase-header > .container > h2{
@@ -235,12 +237,44 @@ main{
     position:absolute;
     border:3px solid #FFDC76;
     border-radius:4px;
+    opacity: 0; /* Start hidden */
+    animation: messagePopup 4s ease-in-out forwards;
+    z-index:-1;
 }
+
+/* Keyframes for the animation */
+/* Animation */
+@keyframes messagePopup {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%); /* Start off-screen */
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0); /* Slide down */
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0); /* Stay in place */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%); /* Slide back up and disappear */
+        display:none;
+    }
+}
+
 
 /* FOOTER */
 footer{
     width:100%;
-    height:300px;
-    margin-top:50px;
-    background:var(--dark-color)
+    padding:100px 0 30px 0;
+    background:var(--dark-color);
+    display:flex;
+    align-items:end;
+    justify-content:center;
+}
+
+footer > p{
+    color:#fff;
 }

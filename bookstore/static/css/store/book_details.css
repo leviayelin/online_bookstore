@@ -1,5 +1,5 @@
 .details-bg{
-    background:linear-gradient(to top,rgba(225,225,225,0.9),rgba(225,225,225,0.9)80%,rgba(225,225,225,0.5)),url('../../images/book-background-1.jpg');
+    background:linear-gradient(to left,rgba(225,225,225,0.9),white 50%,rgba(225,225,225,0.5)),url('../../images/book-background-1.jpg');
     background-size: cover;
     overflow: visible;
 }

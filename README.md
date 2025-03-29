@@ -6,11 +6,11 @@ books as well as promotions and discounts and new registrations.
 
 ## Technologies Used:
 
-Backend: Python, Django Framework.
+Frontend: HTML, CSS, JAVASCRIPT, AJAX (client side).
+
+Backend: Python, Django (server side).
 
 Database: SQL.
-
-Frontend: HTML, CSS, JAVASCRIPT.
 
 ## features:
 

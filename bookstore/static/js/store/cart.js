@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', function(e){
-    e.preventDefault()
     
     let addToCartBtnEl = document.querySelectorAll('.add-book-btn')
     addToCartBtnEl.forEach( bottun => {
 
         bottun.addEventListener('click', function(){
 
-            let itemValue = this.value
-            console.log('button clicked');
-            
+            let itemValue = this.value            
             
             fetch("/store/add_to_cart/", {
                 method:'POST',
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function(e){
                     return; 
                 }
                 if(data.success){
-                    console.log('success')
                     window.updateCartQuantity();
                 }
             }).catch(error =>{
